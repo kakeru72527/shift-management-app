@@ -15,7 +15,9 @@ class StoreController extends Controller
      */
     public function index()
     {
-        //
+        
+        
+        
     }
 
     /**
@@ -47,7 +49,7 @@ class StoreController extends Controller
      */
     public function show(Store $store)
     {
-        //
+        return view('stores.show', compact('store'));
     }
 
     /**

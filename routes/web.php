@@ -25,6 +25,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::resource('staff', StaffController::class);
 
+Route::get('/store/{store}', [App\Http\Controllers\StoreController::class, 'show'])->name('store.show');
+
 
 
 

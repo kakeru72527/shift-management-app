@@ -1,0 +1,53 @@
+/* calendar */
+
+#calendar {
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+}
+
+
+
+
+/* button */
+
+.submit-button {
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #ffffff;
+  background-color: #0fbe9f;
+}
+
+.delete-modal-button{
+  border-radius: 2px;
+  color: #ffffff;
+  background-color: #d94b0e;
+}
+
+.delete-link{
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #ffffff;
+  background-color: #d94b0e;
+}
+
+.store-link{
+  text-decoration-line: none;
+}
+
+
+
+
+
+
+
+

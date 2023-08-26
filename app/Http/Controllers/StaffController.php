@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class StaffController extends Controller
 {
@@ -20,7 +21,9 @@ class StaffController extends Controller
         $user = Auth::user();
         $staffs = $user->staffs;
 
-        return view('staff.index', compact('staffs'));
+        $status_flag = DB::table('staff')->where('user_id',$user->id)->sum('status');
+
+        return view('staff.index', compact('staffs', 'status_flag'));
     }
 
     /**
