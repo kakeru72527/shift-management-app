@@ -52,6 +52,11 @@ class StoreController extends Controller
         return view('stores.show', compact('store'));
     }
 
+
+    public function show_for_addmin(Store $store){
+        return view('stores_for_addmin.show', compact('store'));
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

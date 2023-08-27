@@ -27,6 +27,9 @@ Route::resource('staff', StaffController::class);
 
 Route::get('/store/{store}', [App\Http\Controllers\StoreController::class, 'show'])->name('store.show');
 
+// 管理者ページ
+Route::get('/store_for_addmin/{store}', [App\Http\Controllers\StoreController::class, 'show_for_addmin'])->name('store.show_for_addmin');
+
 
 
 

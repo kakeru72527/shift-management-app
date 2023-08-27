@@ -13,8 +13,12 @@
           <div class="card-header pt-3">
             <div class="d-flex">
               <h2 class="justify-content-start">
-                <a href="{{ route('store.show', $staff->store->id) }}" class="store-link mr-3">{{ $staff->store->name }}</a>
-              </h2>
+                @if($staff->role == 'addmin')
+                  <a href="{{ route('store.show_for_addmin', $staff->store->id) }}" class="store-link mr-3">{{ $staff->store->name }}</a>
+                @else
+                  <a href="{{ route('store.show', $staff->store->id) }}" class="store-link mr-3">{{ $staff->store->name }}</a>
+                @endif
+                </h2>
               
               <form action="{{ route('staff.destroy', $staff) }}" method="post" class="">
                 @csrf
@@ -46,11 +50,11 @@
             <h4 class="mt-2 mx-3">住所：{{ $staff->store->address }}</h4>
             <h5 class="mx-3 text-muted">{{ $staff->store->description }}</h4>
             <h5 class="mx-3 text-muted">あなたの役割：
-              @if($staff->role = 'parttime')
+              @if($staff->role == 'parttime')
                 アルバイト
-              @elseif($staff->role = 'employee')
+              @elseif($staff->role == 'employee')
                 正社員
-              @elseif($staff->role = 'addmin')
+              @elseif($staff->role == 'addmin')
                 管理者
               @endif
             </h5>
