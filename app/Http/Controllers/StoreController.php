@@ -54,7 +54,7 @@ class StoreController extends Controller
 
 
     public function show_for_addmin(Store $store){
-        return view('stores_for_addmin.show', compact('store'));
+        return view('addmin.show_store', compact('store'));
     }
 
     /**
