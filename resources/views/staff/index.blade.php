@@ -6,9 +6,9 @@
 
 <h1>登録した店舗</h1>
 
-  @if($status_flag != 0)
+  @if($status_flag == 0 )
     @foreach($staffs as $staff)
-      @if($staff->status == 1)
+      @if($staff->deleted_at == NULL)
         <div class="card mt-5 w-50">
           <div class="card-header pt-3">
             <div class="d-flex">

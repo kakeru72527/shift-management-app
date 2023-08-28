@@ -20,8 +20,13 @@ class StaffController extends Controller
     {
         $user = Auth::user();
         $staffs = $user->staffs;
+        $status_flag = 0;
 
-        $status_flag = DB::table('staff')->where('user_id',$user->id)->sum('status');
+        foreach($staffs as $staff){
+            if($staff->deleted_at !== NULL){
+                $status_flag +=1;
+            }
+        }
 
         return view('staff.index', compact('staffs', 'status_flag'));
     }
@@ -64,9 +69,9 @@ class StaffController extends Controller
      * @param  \App\Models\Staff  $staff
      * @return \Illuminate\Http\Response
      */
-    public function edit(Staff $staff)
+    public function edit_for_addmin(Staff $staff)
     {
-        //
+        
     }
 
     /**
