@@ -8,6 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class RequestShift extends Model
 {
     use HasFactory;
+    
+    protected $fillable = [
+        'date',
+        'start_time',
+        'end_time'
+    ];
 
     public function staff(){
         return $this->belongsTo('App\Models\Staff');

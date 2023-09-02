@@ -37,3 +37,8 @@ Route::get('/edit_staff/{store}',[App\Http\Controllers\StaffController::class, '
 Route::post('/store_staff/{store}',[App\Http\Controllers\StaffController::class, 'store'])->name('staff.store');
 Route::delete('/staff/addmin/{staff}',[App\Http\Controllers\StaffController::class, 'destroy_for_addmin'])->name('staff.destroy_for_addmin');
 
+
+
+
+
+

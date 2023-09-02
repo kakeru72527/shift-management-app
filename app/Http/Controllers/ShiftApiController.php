@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\RequestShift;
 
-class ShiftController extends Controller
+class ShiftApiController extends Controller
 {
 
     // 希望シフト登録
@@ -28,9 +28,17 @@ class ShiftController extends Controller
         $request_shift->date = date('Y-m-d', $request->input('date'));
         $request_shift->start_time = $request->input('start_time');
         $request_shift->end_time = $request->input('end_time');
+        $request_shift->created_at = now();
 
 
         $request_shift->save();
+
+        return response()->json(RequestShift::all());
+    }
+    
+
+    public function index_request_shift(){
+        //
     }
 
     

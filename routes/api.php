@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ShiftApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,4 +17,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+// API
+Route::middleware(['middleware' => 'api'])->group(function() {
+    // 希望シフト作成
+    Route::post('/request_shifts/create', 'ShiftApiController@create_request_shift');
+    // 希望シフト表示
+    Route::get('/request_shifts', 'ShiftApiController@index_request_shift');
 });
