@@ -4,13 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\User;
 use App\Models\RequestShift;
 
 class ShiftApiController extends Controller
 {
-
-    // 希望シフト登録
+    //// 希望シフト登録
 
     public function create_request_shift(Request $request){
         $request->validate([
@@ -40,11 +38,4 @@ class ShiftApiController extends Controller
     public function index_request_shift(){
         //
     }
-
-    
-
-
-
-
-
 }
