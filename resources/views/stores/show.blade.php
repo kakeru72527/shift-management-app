@@ -9,6 +9,8 @@
 
         </div>
 
+
+        @include('modals.addRequestShift')
     </div>
 
 
