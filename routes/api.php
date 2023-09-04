@@ -19,10 +19,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// API
-Route::middleware(['middleware' => 'api'])->group(function() {
-    // 希望シフト作成
-    Route::post('/request_shifts/create', 'ShiftApiController@create_request_shift');
-    // 希望シフト表示
-    Route::get('/request_shifts', 'ShiftApiController@index_request_shift');
-});
+// // API
+// Route::middleware(['middleware' => 'api'])->group(function() {
+//     // 希望シフト作成
+//     Route::post('/request_shifts/create', 'ShiftApiController@create_request_shift');
+//     // 希望シフト表示
+//     Route::get('/request_shifts', 'ShiftApiController@index_request_shift');
+// });
+
+Route::middleware(['middleware' => 'api'])->post('/request_shifts/create', [ShiftApiController::class, 'create_request_shift']);

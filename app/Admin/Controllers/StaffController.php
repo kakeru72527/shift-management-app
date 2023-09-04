@@ -27,8 +27,8 @@ class StaffController extends AdminController
         $grid = new Grid(new Staff());
 
         $grid->column('id', __('Id'))->sortable();
-        $grid->column('user_id', __('User id'));
-        $grid->column('store_id', __('Store id'));
+        $grid->column('user.name', __('ユーザー名'));
+        $grid->column('store.name', __('店舗名'));
         $grid->column('role', __('Role'))->sortable();
         $grid->column('created_at', __('Created at'))->sortable();
         $grid->column('updated_at', __('Updated at'))->sortable();
