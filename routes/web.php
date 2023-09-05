@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\StoreController;
+use App\Http\Controllers\FormController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,7 +39,10 @@ Route::post('/store_staff/{store}',[App\Http\Controllers\StaffController::class,
 Route::delete('/staff/addmin/{staff}',[App\Http\Controllers\StaffController::class, 'destroy_for_addmin'])->name('staff.destroy_for_addmin');
 
 
+// お問い合わせフォーム
 
-
+Route::get('/form', [App\Http\Controllers\FormController::class, 'index'])->name('form');
+Route::get('/form/complete', [FormController::class, 'complete'])->name('form.complete');
+Route::post('/form', [FormController::class, 'sendMail']);
 
 
