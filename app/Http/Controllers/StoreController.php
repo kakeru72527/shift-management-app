@@ -6,6 +6,7 @@ use App\Models\Store;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class StoreController extends Controller
 {
@@ -51,7 +52,8 @@ class StoreController extends Controller
     public function show(Store $store)
     {
         $user = Auth::user();
-        return view('stores.show', compact('store', 'user'));
+        $staff = DB::table('staff')->where('store_id', $store->id)->where('user_id', $user->id)->first();
+        return view('stores.show', compact('store', 'user', 'staff'));
     }
 
 

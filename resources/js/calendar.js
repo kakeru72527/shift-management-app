@@ -24,7 +24,7 @@ let calendar = new Calendar(calendarEl, {
       $('#addRequestShiftModal .targetDate').text(targetDate);
 
       // APIに渡すデータとして保持するようにformの要素にもセットしておく
-      $('#addRequestShiftModal .modal-body[name="target_date"]').val(targetDate);
+      $('#addRequestShiftModal .modal-body input[name="date"]').val(targetDate);
 
       
       // モーダルを表示させる

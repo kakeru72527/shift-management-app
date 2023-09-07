@@ -7,9 +7,9 @@
           <button type="button" class="btn-close addRequestShiftModalClose" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <input type="hidden" name="user_id"  value="{{ $user->id }}">
+          <input type="hidden" name="staff_id"  value="{{ $staff->id }}">
           <input type="hidden" name="store_id" value="{{ $store->id }}">
-          <input type="hidden" name="target_date">
+          <input type="hidden" name="date">
           <label for="start_time">始業時刻</label><input type="time" name="work_start" id="start_time">
           <label for="end_time">終業時刻</label><input type="time" name="work_end" id="end_time">
         </div>
