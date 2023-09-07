@@ -13,7 +13,7 @@ $('.addRequestShiftModalClose').click(function() {
 $('#addRequestShiftResister').click(function(){
 
   // データの送り先。api.phpに登録したURLを指定
-  var url = "http://localhost/api/request_shifts/create";
+  var url = "http://localhost:8000/api/request_shifts/create";
 
   // 送りつけるデータの文字列を生成する
   // var data = 'user_id='.userId.'&date='.date.'&work_start='.work_start.'&work_end='.work_start;
