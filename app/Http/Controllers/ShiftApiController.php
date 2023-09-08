@@ -6,12 +6,14 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\RequestShift;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class ShiftApiController extends Controller
 {
     //// シフト希望登録
 
     public function create_request_shift(Request $request){
+        Log::info("処理スタート");
         $request->validate([
             'staff_id' => 'required | numeric',
             'store_id' => 'required | numeric',
@@ -20,17 +22,40 @@ class ShiftApiController extends Controller
             'end_time' => 'required | date_format:"H:i"',
         ]);
 
+        Log::info("バリデーション実行");
+
         $staff_id = (int)$request->input('staff_id');
         $store_id = (int)$request->input('store_id');
         $date = $request->input('date');
 
+        // 渡ってきている値をログに出力
+        Log::info("staff_id:{$staff_id} store_id: {$store_id} date: {$date}");
+
         // 既にシフト希望があれば更新
-        if(DB::table('request_shifts')->where('staff_id', $staff_id)->where('store_id', $store_id)->where('date', $date)->exists()){
-            //シフト希望のIDと始業時刻と終業時刻のみupdate_request_shift()に渡す。
-            $request_shift_id = DB::table('request_shifts')->where('staff_id', $staff_id)->where('store_id', $store_id)->where('date', $date)->select('id');
+        Log::info("条件分岐開始");
+        if(RequestShift::where('staff_id', $staff_id)->where('store_id', $store_id)->where('date', $date)->exists()){
+
+            $request_shift_id = RequestShift::where('staff_id', $staff_id)->where('store_id', $store_id)->where('date', $date)->select('id')->first();
+            Log::info("{$request_shift_id}");
+            Log::info("DBから登録済みのデータ取得完了");
             $start_time = $request->input('start_time');
             $end_time = $request->input('end_time');
-            return to_route('api.update_request_shift', ['request_shift_id' => $request_shift_id, 'start_time' => $start_time,'end_time' => $end_time]);
+            Log::info("start_time : {$start_time} , end_time : {$end_time}");
+
+            // $request_shift = RequestShift::where('id', $request_shift_id);
+            // $request_shift->start_time = $start_time;
+            // $request_shift->end_time = $end_time;
+            // $request_shift->update();
+
+            RequestShift::where('id', $request_shift_id)->update([
+                'start_time' => $start_time,
+                'end_time' => $end_time
+            ]);
+
+            
+            Log::info("更新処理完了");
+
+            return response()->json(RequestShift::all());
         }else{
         // 無ければ新規作成
         $request_shift = new RequestShift;
@@ -43,24 +68,14 @@ class ShiftApiController extends Controller
 
 
         $request_shift->save();
+        Log::info("保存処理完了");
         }
 
         return response()->json(RequestShift::all());
     }
 
 
-    // シフト希望更新機能
-    public function update_request_shift($request_shift_id, $start_time, $end_time){
-        
-        $request_shift = DB::table('request_shifts')->where('id', $request_shift_id)->first();
-        $request_shift->start_time = $start_time;
-        $request_shift->end_time = $end_time;
-
-        $request_shift->update();
-
-        return response()->json(RequestShift::all());
     
-    }
 
     public function index_request_shift(){
         //
