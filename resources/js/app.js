@@ -30,6 +30,8 @@ $('#addRequestShiftResister').click(function(){
   .fail(function() {
     alert('登録に失敗しました')
   });
+
+  
 })
 
 

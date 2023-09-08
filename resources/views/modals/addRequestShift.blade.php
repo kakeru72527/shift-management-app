@@ -10,8 +10,8 @@
           <input type="hidden" name="staff_id"  value="{{ $staff->id }}">
           <input type="hidden" name="store_id" value="{{ $store->id }}">
           <input type="hidden" name="date">
-          <label for="start_time">始業時刻</label><input type="time" name="work_start" id="start_time">
-          <label for="end_time">終業時刻</label><input type="time" name="work_end" id="end_time">
+          <label for="start_time">始業時刻</label><input type="time" name="start_time" id="start_time">
+          <label for="end_time">終業時刻</label><input type="time" name="end_time" id="end_time">
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary addRequestShiftModalClose" data-bs-dismiss="modal">閉じる</button>
