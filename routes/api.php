@@ -28,4 +28,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // });
 
 Route::middleware(['middleware' => 'api'])->post('/request_shifts/create', [ShiftApiController::class, 'create_request_shift'])->name('api.create_request_shift');
-
+Route::middleware(['middleware' => 'api'])->put('/request_shifts/update/{request_shift_id}/{start_time}/{end_time}', [ShiftApiController::class, 'update_request_shift'])->name('api.update_request_shift');
