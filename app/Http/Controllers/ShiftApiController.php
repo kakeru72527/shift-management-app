@@ -35,17 +35,15 @@ class ShiftApiController extends Controller
         Log::info("条件分岐開始");
         if(RequestShift::where('staff_id', $staff_id)->where('store_id', $store_id)->where('date', $date)->exists()){
 
-            $request_shift_id = RequestShift::where('staff_id', $staff_id)->where('store_id', $store_id)->where('date', $date)->select('id')->first();
-            Log::info("{$request_shift_id}");
+            $request_shift_id = RequestShift::where('staff_id', $staff_id)->where('store_id', $store_id)->where('date', $date)->value('id');
+            Log::info("request_shift_id : {$request_shift_id}");
             Log::info("DBから登録済みのデータ取得完了");
             $start_time = $request->input('start_time');
             $end_time = $request->input('end_time');
             Log::info("start_time : {$start_time} , end_time : {$end_time}");
 
-            // $request_shift = RequestShift::where('id', $request_shift_id);
-            // $request_shift->start_time = $start_time;
-            // $request_shift->end_time = $end_time;
-            // $request_shift->update();
+            $request_shift = RequestShift::where('id', $request_shift_id)->first();
+            Log::info("request_shift : {$request_shift}");
 
             RequestShift::where('id', $request_shift_id)->update([
                 'start_time' => $start_time,
