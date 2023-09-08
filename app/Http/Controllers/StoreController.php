@@ -56,6 +56,12 @@ class StoreController extends Controller
         return view('stores.show', compact('store', 'user', 'staff'));
     }
 
+    public function confirm_show(Store $store){
+        $user = Auth::user();
+        $staff = DB::table('staff')->where('store_id', $store->id)->where('user_id', $user->id)->first();
+        return view('stores.confirm_show', compact('store', 'user', 'staff'));
+    }
+
 
     public function show_for_addmin(Store $store){
         return view('addmin.show_store', compact('store'));

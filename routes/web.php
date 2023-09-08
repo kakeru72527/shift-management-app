@@ -28,7 +28,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/staff',[App\Http\Controllers\StaffController::class, 'index'])->name('staff.index');
 Route::delete('/staff/{staff}',[App\Http\Controllers\StaffController::class, 'destroy'])->name('staff.destroy');
 
-Route::get('/store/{store}', [App\Http\Controllers\StoreController::class, 'show'])->name('store.show');
+Route::get('/request_shift/{store}', [App\Http\Controllers\StoreController::class, 'show'])->name('request_shift.show');
+Route::get('/confirm_shift/{store}', [App\Http\Controllers\StoreController::class, 'confirm_show'])->name('confirm_shift.show');
 
 // 管理者ページ
 Route::get('/store_for_addmin/{store}', [App\Http\Controllers\StoreController::class, 'show_for_addmin'])->name('store.show_for_addmin');

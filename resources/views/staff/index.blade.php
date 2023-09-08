@@ -16,7 +16,7 @@
                 @if($staff->role == 'addmin')
                   <a href="{{ route('store.show_for_addmin', $staff->store->id) }}" class="store-link mr-3">{{ $staff->store->name }}</a>
                 @else
-                  <a href="{{ route('store.show', $staff->store->id) }}" class="store-link mr-3">{{ $staff->store->name }}</a>
+                  <a href="{{ route('confirm_shift.show', $staff->store->id) }}" class="store-link mr-3">{{ $staff->store->name }}</a>
                 @endif
                 </h2>
               

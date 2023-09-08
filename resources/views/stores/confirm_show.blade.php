@@ -13,14 +13,13 @@
     <div class="container">
 
         <h1>{{ $store->name }}</h1>
-        <h3 class="text-muted mt-3">シフト希望作成ページ<a href="{{ route('confirm_shift.show', $store->id) }}" class="btn btn-secondary" >確定したシフト閲覧ページへ</a></h3>
-
+        <h3 class="text-muted mt-3">シフト閲覧ページ<a href="{{ route('request_shift.show', $store->id) }}" class="btn btn-secondary">シフト希望作成ページへ</a></h3>
+        
         <div id="calendar">
 
         </div>
 
 
-        @include('modals.addRequestShift')
     </div>
 
 
