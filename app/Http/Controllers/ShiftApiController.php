@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\RequestShift;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use App\Models\Staff;
+use App\Models\User;
 
 class ShiftApiController extends Controller
 {
@@ -70,6 +72,38 @@ class ShiftApiController extends Controller
         }
 
         return response()->json(RequestShift::all());
+    }
+
+    public function get_request_shift(Request $request){
+        $store_id = $request->storeId;
+        $date = $request->date;
+
+        Log::info("storeId : {$store_id} , date : {$date}");
+
+        $request_shifts = RequestShift::where("store_id", $store_id)->where("date", $date)->get();
+
+        Log::info("request_shifts => {$request_shifts}");
+
+        $user_names = array();
+
+        foreach($request_shifts as $request_shift){
+            $staff = Staff::where('id', $request_shift->staff_id)->first();
+            Log::info("staff = {$staff}");
+            $user_name = User::where('id', $staff->user_id)->value('name');
+            Log::info("user_name = {$user_name}");
+
+            $user_names[] = "$user_name";
+
+        }
+
+        $user_names = implode(",", $user_names);
+
+        Log::info("user_name => {$user_names}");
+
+        
+
+        return response()->json($request_shifts);
+
     }
 
 

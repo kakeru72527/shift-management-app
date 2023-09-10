@@ -7,6 +7,8 @@
           <button type="button" class="btn-close addRequestShiftModalClose" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
+          <p>現在のシフト状況</p>
+          <div class="staff_shifts"></div>
           <input type="hidden" name="staff_id"  value="{{ $staff->id }}">
           <input type="hidden" name="store_id" value="{{ $store->id }}">
           <input type="hidden" name="date">

@@ -26,9 +26,37 @@ let calendar = new Calendar(calendarEl, {
       // APIに渡すデータとして保持するようにformの要素にもセットしておく
       $('#addRequestShiftModal .modal-body input[name="date"]').val(targetDate);
 
+      // urlからstore_idを取得
+      let requestUrl = new URL(window.location.href)
       
-      // モーダルを表示させる
+      var storeId = requestUrl.href.replace("http://localhost/shift-management-app/public/confirm_shift/", "")
+
+      console.log(storeId)
+
+      var postData = {date: targetDate, storeId: storeId}
+
+      console.log(postData)
+      
+      $.get(Laravel.request_shift_get_url, postData)
+      .done(function(){
+        // モーダルを表示させる
+        request_shifts.forEach(function(elem) {
+          var staff = $('<div>');
+
+          var text = '名前:' + elem.user_id + '' + elem.start_time +  '～' + elem.end_time;
+          staff.text(text);
+          
+          $('.staff-shifts').append(staff);
+        })
       $('#addRequestShiftModal').show();
+      })
+      .fail(function() {
+        console.log("データ取得失敗");
+      });
+      
+      
+      
+      
     },
   });
 calendar.render();

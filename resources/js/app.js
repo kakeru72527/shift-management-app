@@ -23,7 +23,7 @@ $('#addRequestShiftResister').click(function(){
   // user_id=xxxx&date=2023/08/01&work_start=.... のように
   var postData = $("#addRequestShiftModal form").serialize();
   console.log(postData);
-  $.post( Laravel.shift_post_url, postData )
+  $.post( Laravel.request_shift_post_url, postData )
   .done(function() {
     alert('正常に登録できました')
   })
