@@ -8,7 +8,7 @@
         </div>
         <div class="modal-body">
           <p>現在のシフト状況</p>
-          <div id="staff_shifts"></div>
+          <div id="staff-shifts"></div>
           <input type="hidden" name="staff_id"  value="{{ $staff->id }}">
           <input type="hidden" name="store_id" value="{{ $store->id }}">
           <input type="hidden" name="date">
