@@ -15,6 +15,11 @@ class RequestShift extends Model
         'end_time'
     ];
 
+    protected $hidden = [
+        'created_at',
+        'updated_at'
+    ];
+
     public function staff(){
         return $this->belongsTo('App\Models\Staff');
     }

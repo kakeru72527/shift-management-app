@@ -80,25 +80,36 @@ class ShiftApiController extends Controller
 
         Log::info("storeId : {$store_id} , date : {$date}");
 
-        $request_shifts = RequestShift::where("store_id", $store_id)->where("date", $date)->get();
+        // $request_shifts = RequestShift::with('staff.user')->where("store_id", $store_id)->where("date", $date)->get();
+
+        $request_shifts = RequestShift::select([
+            "r.start_time",
+            "r.end_time",
+            "u.name",
+        ])->from('request_shifts as r')
+        ->join("staff as s", function($join) {
+            $join->on('r.staff_id', '=', 's.id');
+        })->join("users as u", function($join) {
+            $join->on('s.user_id', '=', 'u.id');
+        })->where("date", $date)->get();
 
         Log::info("request_shifts => {$request_shifts}");
 
-        $user_names = array();
+        // $user_names = array();
 
-        foreach($request_shifts as $request_shift){
-            $staff = Staff::where('id', $request_shift->staff_id)->first();
-            Log::info("staff = {$staff}");
-            $user_name = User::where('id', $staff->user_id)->value('name');
-            Log::info("user_name = {$user_name}");
+        // foreach($request_shifts as $request_shift){
+        //     $staff = Staff::where('id', $request_shift->staff_id)->first();
+        //     Log::info("staff = {$staff}");
+        //     $user_name = User::where('id', $staff->user_id)->value('name');
+        //     Log::info("user_name = {$user_name}");
 
-            $user_names[] = "$user_name";
+        //     $user_names[] = "$user_name";
 
-        }
+        // }
 
-        $user_names = implode(",", $user_names);
+        // $user_names = implode(",", $user_names);
 
-        Log::info("user_name => {$user_names}");
+        // Log::info("user_name => {$user_names}");
 
         
 

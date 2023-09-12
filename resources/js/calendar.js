@@ -29,7 +29,7 @@ let calendar = new Calendar(calendarEl, {
       // urlからstore_idを取得
       let requestUrl = new URL(window.location.href)
       
-      var storeId = requestUrl.href.replace("http://localhost/shift-management-app/public/confirm_shift/", "")
+      var storeId = requestUrl.href.replace("http://localhost/shift-management-app/public/request_shift/", "")
 
       console.log(storeId)
 
