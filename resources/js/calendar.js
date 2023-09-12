@@ -38,15 +38,20 @@ let calendar = new Calendar(calendarEl, {
       console.log(postData)
       
       $.get(Laravel.request_shift_get_url, postData)
-      .done(function(){
-        // モーダルを表示させる
-        request_shifts.forEach(function(elem) {
-          var staff = $('<div>');
+      .done(function(data){
 
-          var text = '名前:' + elem.user_id + '' + elem.start_time +  '～' + elem.end_time;
-          staff.text(text);
+        console.log(data);
+        let staffShifts = document.getElementById('staff-shifts')
+        // モーダルを表示させる
+        data.forEach(function(elem) {
+          console.log(elem.name)
+          var staff = document.createElement("div");
+
+          var text = '名前 : ' + elem.name + ' 時間 : ' + elem.start_time +  '～' + elem.end_time;
+          // staff.textContent = text
+          // console.log(staff)
           
-          $('.staff-shifts').append(staff);
+          staffShifts.append(text, staff);
         })
       $('#addRequestShiftModal').show();
       })
