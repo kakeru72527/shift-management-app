@@ -74,6 +74,8 @@ class ShiftApiController extends Controller
         return response()->json(RequestShift::all());
     }
 
+    // シフト希望入手
+
     public function get_request_shift(Request $request){
         $store_id = $request->storeId;
         $date = $request->date;
@@ -95,32 +97,32 @@ class ShiftApiController extends Controller
 
         Log::info("request_shifts => {$request_shifts}");
 
-        // $user_names = array();
-
-        // foreach($request_shifts as $request_shift){
-        //     $staff = Staff::where('id', $request_shift->staff_id)->first();
-        //     Log::info("staff = {$staff}");
-        //     $user_name = User::where('id', $staff->user_id)->value('name');
-        //     Log::info("user_name = {$user_name}");
-
-        //     $user_names[] = "$user_name";
-
-        // }
-
-        // $user_names = implode(",", $user_names);
-
-        // Log::info("user_name => {$user_names}");
-
-        
-
         return response()->json($request_shifts);
 
     }
 
+    // 確定シフト入手
 
-    
+    public function get_confirm_shift(Request $request){
+        $store_id = $request->storeId;
+        $date = $request->date;
 
-    public function index_request_shift(){
-        //
+        // Log::info("storeId : {$store_id} , date : {$date}");
+
+        $confirm_shifts = RequestShift::select([
+            "c.start_time",
+            "c.end_time",
+            "u.name",
+        ])->from('confirm_shifts as c')
+        ->join("staff as s", function($join) {
+            $join->on('r.staff_id', '=', 's.id');
+        })->join("users as u", function($join) {
+            $join->on('s.user_id', '=', 'u.id');
+        })->where("date", $date)->get();
+
+        // Log::info("confirm_shifts => {$confirm_shifts}");
+
+        return response()->json($confirm_shifts);
     }
+
 }
