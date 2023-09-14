@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\RequestShift;
+use App\Models\ConfirmShift;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use App\Models\Staff;
@@ -101,6 +102,8 @@ class ShiftApiController extends Controller
 
     }
 
+
+
     // 確定シフト入手
 
     public function get_confirm_shift(Request $request){
@@ -109,13 +112,13 @@ class ShiftApiController extends Controller
 
         // Log::info("storeId : {$store_id} , date : {$date}");
 
-        $confirm_shifts = RequestShift::select([
+        $confirm_shifts = ConfirmShift::select([
             "c.start_time",
             "c.end_time",
             "u.name",
         ])->from('confirm_shifts as c')
         ->join("staff as s", function($join) {
-            $join->on('r.staff_id', '=', 's.id');
+            $join->on('c.staff_id', '=', 's.id');
         })->join("users as u", function($join) {
             $join->on('s.user_id', '=', 'u.id');
         })->where("date", $date)->get();

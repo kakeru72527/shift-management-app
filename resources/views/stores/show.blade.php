@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+@section('resources')
+
+@vite(['resources/js/calendarForStaffRequest.js'])
+
+@endsection
+
 @section('content')
 
     <?php

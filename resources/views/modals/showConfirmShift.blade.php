@@ -7,7 +7,7 @@
         </div>
         <div class="modal-body">
           <p>シフト状況</p>
-          <div id="staff-shifts"></div>
+          <div id="confirm-staff-shifts"></div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary showConfirmShiftModalClose" data-bs-dismiss="modal">閉じる</button>

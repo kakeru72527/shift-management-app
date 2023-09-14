@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+@section('resources')
+
+@vite(['resources/js/calendarForStaffConfirm.js'])
+
+@endsection
+
 @section('content')
 
     <?php
@@ -15,7 +21,7 @@
         <h1>{{ $store->name }}</h1>
         <h3 class="text-muted mt-3">シフト閲覧ページ<a href="{{ route('request_shift.show', $store->id) }}" class="btn btn-secondary">シフト希望作成ページへ</a></h3>
         
-        <div id="calendar-for-staff-confirm">
+        <div id="calendar-for-staff-confirm" class="w-75 mx-auto mt-5">
 
         </div>
 

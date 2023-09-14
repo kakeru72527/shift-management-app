@@ -1,13 +1,23 @@
 import './bootstrap';
-import './calendar';
+// import './calendarForStaffRequest';
 
 
 // addRequestShiftModal
 
 // modalを閉じる
 $('.addRequestShiftModalClose').click(function() {
+  let staffShifts = document.getElementById('request-staff-shifts');
+  staffShifts.textContent = "";
   $('#addRequestShiftModal').hide();
 })
+
+$('.showConfirmShiftModalClose').click(function() {
+  let staffShifts = document.getElementById('confirm-staff-shifts');
+  staffShifts.textContent = "";
+  $('#showConfirmShiftModal').hide();
+})
+
+
 
 // modalからapiを使ってPOST
 $('#addRequestShiftResister').click(function(){
