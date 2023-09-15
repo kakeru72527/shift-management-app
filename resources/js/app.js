@@ -17,6 +17,14 @@ $('.showConfirmShiftModalClose').click(function() {
   $('#showConfirmShiftModal').hide();
 })
 
+$('.addConfirmShiftModalClose').click(function() {
+  let a = document.getElementById('confirm-shifts-for-admin');
+  a.textContent = "";
+  let b = document.getElementById('request-shifts-for-admin');
+  b.textContent = "";
+  $('#addConfirmShiftModal').hide();
+})
+
 
 
 // modalからapiを使ってPOST

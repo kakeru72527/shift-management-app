@@ -24,9 +24,14 @@
       <div class="col-sm-12">
         <h1>{{ $store->name }}:スタッフ一覧</h1>
         <br>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addStaffModal">
-          スタッフ追加
-        </button>
+
+        <div class="d-flex justify-content-between">
+          <a href="{{  route('store.show_for_admin', $store->id) }}" class="btn btn-secondary">戻る</a>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addStaffModal">
+            スタッフ追加
+          </button>
+
+        </div>
 
         <!-- Modal -->
         <div class="modal fade" id="addStaffModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
