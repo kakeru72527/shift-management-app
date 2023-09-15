@@ -27,6 +27,8 @@ $('.addConfirmShiftModalClose').click(function() {
 
 
 
+// request_shift 登録
+
 // modalからapiを使ってPOST
 $('#addRequestShiftResister').click(function(){
 
@@ -52,8 +54,21 @@ $('#addRequestShiftResister').click(function(){
   
 })
 
+// confirm_shift 登録
 
+$('#addConfirmShiftResister').click(function(){
 
+  var postData = $("#addConfirmShiftModal form").serialize();
+  console.log(postData);
+  $.post( Laravel.confirm_shift_post_url, postData )
+  .done(function() {
+    alert('正常に登録できました')
+  })
+  .fail(function() {
+    alert('登録に失敗しました')
+  });
 
+  
+})
 
 

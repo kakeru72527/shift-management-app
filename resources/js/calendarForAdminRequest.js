@@ -30,6 +30,9 @@ let calendar = new Calendar(calendarForAdminAddConfirm, {
       var targetDate = info.dateStr;
       $('#addConfirmShiftModal .targetDate').text(targetDate);
 
+      // APIに渡すデータとして保持するようにformの要素にもセットしておく
+      $('#addConfirmShiftModal .modal-body input[name="date"]').val(targetDate);
+
 
       // urlからstore_idを取得
       let requestUrl = new URL(window.location.href)

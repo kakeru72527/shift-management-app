@@ -7,13 +7,15 @@
           <button type="button" class="btn-close addRequestShiftModalClose" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <p>現在のシフト状況</p>
+          <p>現在のシフト希望状況</p>
           <div id="request-staff-shifts"></div>
           <input type="hidden" name="staff_id"  value="{{ $staff->id }}">
           <input type="hidden" name="store_id" value="{{ $store->id }}">
           <input type="hidden" name="date">
-          <label for="start_time">始業時刻</label><input type="time" name="start_time" id="start_time">
-          <label for="end_time">終業時刻</label><input type="time" name="end_time" id="end_time">
+          <div class="d-flex">
+            <label for="start_time" class="mt-1">始業時刻</label><input type="time" name="start_time" id="start_time" class="form-control mx-2" style="width: 100px">
+            <label for="end_time" class="mt-1">終業時刻</label><input type="time" name="end_time" id="end_time" class="form-control mx-2" style="width: 100px">
+          </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary addRequestShiftModalClose" data-bs-dismiss="modal">閉じる</button>

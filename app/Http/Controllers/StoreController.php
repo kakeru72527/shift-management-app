@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Store;
+use App\Models\Staff;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -64,7 +65,8 @@ class StoreController extends Controller
 
 
     public function show_for_admin(Store $store){
-        return view('admin.show_store', compact('store'));
+        $staffs = $store->staffs;
+        return view('admin.show_store', compact('store', 'staffs'));
     }
 
     /**

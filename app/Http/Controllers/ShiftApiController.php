@@ -131,5 +131,65 @@ class ShiftApiController extends Controller
     // 確定シフト追加
 
 
+    public function create_confirm_shift(Request $request){
+        Log::info("処理スタート");
+        Log::info($request);
+        $request->validate([
+            'staff_id' => 'required | numeric',
+            'store_id' => 'required | numeric',
+            'date' => 'required | date_format:Y-m-d',
+            'start_time' => 'required | date_format:"H:i"',
+            'end_time' => 'required | date_format:"H:i"',
+        ]);
+
+        Log::info("バリデーション実行");
+
+        $staff_id = (int)$request->input('staff_id');
+        $store_id = (int)$request->input('store_id');
+        $date = $request->input('date');
+
+        // 渡ってきている値をログに出力
+        Log::info("staff_id:{$staff_id} store_id: {$store_id} date: {$date}");
+
+        // 既にシフト希望があれば更新
+        Log::info("条件分岐開始");
+        if(ConfirmShift::where('staff_id', $staff_id)->where('store_id', $store_id)->where('date', $date)->exists()){
+
+            $confirm_shift_id = ConfirmShift::where('staff_id', $staff_id)->where('store_id', $store_id)->where('date', $date)->value('id');
+            Log::info("confirm_shift_id : {$confirm_shift_id}");
+            Log::info("DBから登録済みのデータ取得完了");
+            $start_time = $request->input('start_time');
+            $end_time = $request->input('end_time');
+            Log::info("start_time : {$start_time} , end_time : {$end_time}");
+
+            $confirm_shift = ConfirmShift::where('id', $confirm_shift_id)->first();
+            Log::info("confirm_shift : {$confirm_shift}");
+
+            ConfirmShift::where('id', $confirm_shift_id)->update([
+                'start_time' => $start_time,
+                'end_time' => $end_time
+            ]);
+
+            
+            Log::info("更新処理完了");
+
+            return response()->json(ConfirmShift::all());
+        }else{
+        // 無ければ新規作成
+        $confirm_shift = new ConfirmShift;
+
+        $confirm_shift->staff_id = (int)$request->input('staff_id');
+        $confirm_shift->store_id = (int)$request->input('store_id');
+        $confirm_shift->date = $request->input('date');
+        $confirm_shift->start_time = $request->input('start_time');
+        $confirm_shift->end_time = $request->input('end_time');
+
+
+        $confirm_shift->save();
+        Log::info("保存処理完了");
+        }
+
+        return response()->json(ConfirmShift::all());
+    } 
     
 }

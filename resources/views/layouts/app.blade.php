@@ -18,7 +18,9 @@
         window.Laravel = {};
         window.Laravel.request_shift_post_url = "{{ route('api.create_request_shift') }}";
         window.Laravel.request_shift_get_url = "{{ route('api.get_request_shift') }}";
-        window.Laravel.confirm_shift_get_url = "{{ route('api.get_confirm_shift') }}"
+        window.Laravel.confirm_shift_get_url = "{{ route('api.get_confirm_shift') }}";
+        window.Laravel.confirm_shift_post_url = "{{ route('api.create_confirm_shift') }}";
+        
     </script>
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     @vite(['resources/css/app.css', 'resources/js/app.js'])
