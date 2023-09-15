@@ -32,12 +32,12 @@ Route::get('/request_shift/{store}', [App\Http\Controllers\StoreController::clas
 Route::get('/confirm_shift/{store}', [App\Http\Controllers\StoreController::class, 'confirm_show'])->middleware('auth')->name('confirm_shift.show');
 
 // 管理者ページ
-Route::get('/store_for_addmin/{store}', [App\Http\Controllers\StoreController::class, 'show_for_addmin'])->middleware('auth')->name('store.show_for_addmin');
+Route::get('/store_for_admin/{store}', [App\Http\Controllers\StoreController::class, 'show_for_admin'])->middleware('auth')->name('store.show_for_admin');
 
 // スタッフ編集
-Route::get('/edit_staff/{store}',[App\Http\Controllers\StaffController::class, 'edit_staff'])->middleware('auth')->name('staff.edit_for_addmin');
+Route::get('/edit_staff/{store}',[App\Http\Controllers\StaffController::class, 'edit_staff'])->middleware('auth')->name('staff.edit_for_admin');
 Route::post('/store_staff/{store}',[App\Http\Controllers\StaffController::class, 'store'])->middleware('auth')->name('staff.store');
-Route::delete('/staff/addmin/{staff}',[App\Http\Controllers\StaffController::class, 'destroy_for_addmin'])->middleware('auth')->name('staff.destroy_for_addmin');
+Route::delete('/staff/admin/{staff}',[App\Http\Controllers\StaffController::class, 'destroy_for_admin'])->middleware('auth')->name('staff.destroy_for_admin');
 
 
 // お問い合わせフォーム

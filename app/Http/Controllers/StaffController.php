@@ -75,7 +75,7 @@ class StaffController extends Controller
             $flashMessage = "入力したメールアドレスを持つユーザーが存在しません。";
         }
 
-        return to_route('staff.edit_for_addmin',$store->id)->with($messagekey, $flashMessage);
+        return to_route('staff.edit_for_admin',$store->id)->with($messagekey, $flashMessage);
     }
 
     /**
@@ -101,7 +101,7 @@ class StaffController extends Controller
         // 管理者確認
 
         $staffs = $store->staffs;
-        return view('addmin.edit_staff', compact('staffs', 'store'));
+        return view('admin.edit_staff', compact('staffs', 'store'));
         
     }
 
@@ -135,17 +135,17 @@ class StaffController extends Controller
         return to_route('staff.index');
     }
 
-    public function destroy_for_addmin(Staff $staff)
+    public function destroy_for_admin(Staff $staff)
     {
         $user = Auth::user();
         $store = $staff->store;
-        $addmin = DB::table('staff')->where('store_id', $store->id)->where('role', '=', 'addmin')->first();
-        if($addmin->user_id == $user->id){
+        $admin = DB::table('staff')->where('store_id', $store->id)->where('role', '=', 'admin')->first();
+        if($admin->user_id == $user->id){
             $staff->delete();
         }
 
         $staff->update();
 
-        return to_route('staff.edit_for_addmin', $store->id)->with('deleteMessage', "スタッフのリストからの削除に成功しました。");
+        return to_route('staff.edit_for_admin', $store->id)->with('deleteMessage', "スタッフのリストからの削除に成功しました。");
     }
 }

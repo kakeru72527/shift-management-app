@@ -63,8 +63,8 @@ class StoreController extends Controller
     }
 
 
-    public function show_for_addmin(Store $store){
-        return view('addmin.show_store', compact('store'));
+    public function show_for_admin(Store $store){
+        return view('admin.show_store', compact('store'));
     }
 
     /**

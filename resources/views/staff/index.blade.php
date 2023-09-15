@@ -13,8 +13,8 @@
           <div class="card-header pt-3">
             <div class="d-flex">
               <h2 class="justify-content-start">
-                @if($staff->role == 'addmin')
-                  <a href="{{ route('store.show_for_addmin', $staff->store->id) }}" class="store-link mr-3">{{ $staff->store->name }}</a>
+                @if($staff->role == 'admin')
+                  <a href="{{ route('store.show_for_admin', $staff->store->id) }}" class="store-link mr-3">{{ $staff->store->name }}</a>
                 @else
                   <a href="{{ route('confirm_shift.show', $staff->store->id) }}" class="store-link mr-3">{{ $staff->store->name }}</a>
                 @endif
@@ -54,7 +54,7 @@
                 アルバイト
               @elseif($staff->role == 'employee')
                 正社員
-              @elseif($staff->role == 'addmin')
+              @elseif($staff->role == 'admin')
                 管理者
               @endif
             </h5>

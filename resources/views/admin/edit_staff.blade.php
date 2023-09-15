@@ -85,19 +85,19 @@
                     アルバイト
                   @elseif($staff->role == 'employee')
                     正社員
-                  @elseif($staff->role == 'addmin')
+                  @elseif($staff->role == 'admin')
                     管理者
                   @endif
                 </td>
                 <td>{{ $staff->user->email }}</td>
                 <td>
-                  <form action="{{ route('staff.destroy_for_addmin', $staff) }}" method="post" class="">
+                  <form action="{{ route('staff.destroy_for_admin', $staff) }}" method="post" class="">
                     @csrf
                     @method('delete')
-                    <div class="btn delete-link text-right" data-bs-toggle="modal" data-bs-target="#staff-delete-for-addmin-modal{{ $staff->id }}">削除</div>
+                    <div class="btn delete-link text-right" data-bs-toggle="modal" data-bs-target="#staff-delete-for-admin-modal{{ $staff->id }}">削除</div>
                     
 
-                    <div class="modal fade" id="staff-delete-for-addmin-modal{{ $staff->id }}" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal fade" id="staff-delete-for-admin-modal{{ $staff->id }}" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                       <div class="modal-dialog">
                         <div class="modal-content">
                           <div class="modal-header">
