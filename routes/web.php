@@ -33,6 +33,9 @@ Route::get('/confirm_shift/{store}', [App\Http\Controllers\StoreController::clas
 
 // 管理者ページ
 Route::get('/store_for_admin/{store}', [App\Http\Controllers\StoreController::class, 'show_for_admin'])->middleware('auth')->name('store.show_for_admin');
+// 店長側 シフト表示ページ
+Route::get('/store_for_admin/{store}/{date}', [App\Http\Controllers\StoreController::class, 'confirm_show_day'])->middleware('auth')->name('confirm_shift.show_day');
+
 
 // スタッフ編集
 Route::get('/edit_staff/{store}',[App\Http\Controllers\StaffController::class, 'edit_staff'])->middleware('auth')->name('staff.edit_for_admin');

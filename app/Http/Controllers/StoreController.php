@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Store;
 use App\Models\Staff;
+use App\Models\User;
+use App\Models\ConfirmShift;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -64,42 +66,33 @@ class StoreController extends Controller
     }
 
 
+    // 店長側カレンダー
+
     public function show_for_admin(Store $store){
+        
         $staffs = $store->staffs;
         return view('admin.show_store', compact('store', 'staffs'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Store  $store
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Store $store)
-    {
-        //
+    // 店長側 確定シフト閲覧画面(day)
+
+    public function confirm_show_day(Store $store, $date){
+        $store_id = $store->id;
+        // 指定日のconfirm_shifts取得
+        $confirm_shifts = ConfirmShift::select([
+            "c.start_time",
+            "c.end_time",
+            "u.name",
+        ])->from('confirm_shifts as c')
+        ->join("staff as s", function($join) {
+            $join->on('c.staff_id', '=', 's.id');
+        })->join("users as u", function($join) {
+            $join->on('s.user_id', '=', 'u.id');
+        })->where("c.date", $date)->where("c.store_id", $store_id)->get();
+
+        return view('admin.confirm_shift', compact('store', 'date' ,  'confirm_shifts'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Store  $store
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Store $store)
-    {
-        //
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Store  $store
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Store $store)
-    {
-        //
-    }
+   
 }

@@ -33,6 +33,16 @@ let calendar = new Calendar(calendarForAdminAddConfirm, {
       // APIに渡すデータとして保持するようにformの要素にもセットしておく
       $('#addConfirmShiftModal .modal-body input[name="date"]').val(targetDate);
 
+      // 当日シフト確認のリンク生成
+
+      let link = location.href + "/" +targetDate;
+
+      console.log(link)
+
+      let linkButton = document.getElementById('link-button')
+
+      linkButton.setAttribute('href', link)
+
 
       // urlからstore_idを取得
       let requestUrl = new URL(window.location.href)

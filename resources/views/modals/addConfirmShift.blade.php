@@ -28,7 +28,8 @@
             <label for="end_time" class="mt-1">終業時刻</label><input type="time" name="end_time" id="end_time" class="form-control mx-2" style="width: 100px">
           </div>
         </div>
-        <div class="modal-footer">
+        <div class="modal-footer d-flex">
+          <a href="" id="link-button" class="btn btn-success text-align-left">当日のシフト確認へ</a>
           <button type="button" class="btn btn-secondary addConfirmShiftModalClose" data-bs-dismiss="modal">閉じる</button>
           <button type="button" class="btn btn-primary" id="addConfirmShiftResister">登録</button>
         </div>
