@@ -94,7 +94,7 @@ class ShiftApiController extends Controller
             $join->on('r.staff_id', '=', 's.id');
         })->join("users as u", function($join) {
             $join->on('s.user_id', '=', 'u.id');
-        })->where("date", $date)->get();
+        })->where("r.date", $date)->where("r.store_id",$store_id)->get();
 
         Log::info("request_shifts => {$request_shifts}");
 
@@ -121,7 +121,7 @@ class ShiftApiController extends Controller
             $join->on('c.staff_id', '=', 's.id');
         })->join("users as u", function($join) {
             $join->on('s.user_id', '=', 'u.id');
-        })->where("date", $date)->get();
+        })->where("c.date", $date)->where("c.store_id", $store_id)->get();
 
         // Log::info("confirm_shifts => {$confirm_shifts}");
 
