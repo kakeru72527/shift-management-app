@@ -9,7 +9,8 @@ export default defineConfig({
                 'resources/js/app.js',
                 'resources/css/app.css',
                 'resources/js/calendarForStaffRequest.js',
-                'resources/js/calendarForStaffConfirm.js'
+                'resources/js/calendarForStaffConfirm.js',
+                'resources/js/calendarForAdminRequest.js'
             ],
             refresh: true,
         }),
