@@ -2,7 +2,7 @@
 
 @section('resources')
 
-@vite(['resources/js/calendarForAdminConfirm.js'])
+
 @vite(['resources/js/calendarForAdminRequest.js'])
 
 @endsection
@@ -22,8 +22,6 @@
     @include('modals.addConfirmShift')
 
 
-
-    <div id="calendar-for-admin-show-confirm" class="w-75 mx-auto mt-5"></div>
 
 
 
