@@ -14,7 +14,7 @@
   <?php
   // 時間枠のベースとなる配列の生成
   $shiftTimes = [];
-  for($hour = 11; $hour < 23; $hour++){
+  for($hour = 9; $hour < 24; $hour++){
     for($min = 0; $min < 60; $min += 30){
       $shiftTimes[] = sprintf('%02d', $hour) . ":" . sprintf('%02d', $min);
     }
