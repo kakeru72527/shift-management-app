@@ -2,6 +2,10 @@
 
 @section('resources')
 
+<script>
+  storeId = {{ $store->id }}
+</script>
+
 @vite(['resources/js/calendarForStaffConfirm.js'])
 
 @endsection

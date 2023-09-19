@@ -47,7 +47,7 @@ let calendar = new Calendar(calendarForAdminAddConfirm, {
       // urlからstore_idを取得
       let requestUrl = new URL(window.location.href)
       
-      var storeId = requestUrl.href.replace("http://localhost/shift-management-app/public/store_for_admin/", "")
+      
 
       console.log(storeId)
 

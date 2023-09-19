@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('resources')
+<script>
+  storeId = {{ $store->id }}
+</script>
 
 
 @vite(['resources/js/calendarForAdminRequest.js'])
