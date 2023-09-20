@@ -2,6 +2,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <form action="">
+        @csrf
         <div class="modal-header">
           <h5 class="modal-title targetDate" id="addConfirmShiftModalLabel"></h5>
           <button type="button" class="btn-close addConfirmShiftModalClose" data-bs-dismiss="modal" aria-label="Close"></button>
