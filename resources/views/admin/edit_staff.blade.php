@@ -99,21 +99,21 @@
                   <form action="{{ route('staff.destroy_for_admin', $staff) }}" method="post" class="">
                     @csrf
                     @method('delete')
-                    <div class="btn delete-link text-right" data-bs-toggle="modal" data-bs-target="#staff-delete-for-admin-modal{{ $staff->id }}">削除</div>
+                    <div class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staff-delete-for-admin-modal{{ $staff->id }}">削除</div>
                     
 
-                    <div class="modal fade" id="staff-delete-for-admin-modal{{ $staff->id }}" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal fade" id="staff-delete-for-admin-modal{{ $staff->id }}" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel{{ $staff->id }}" aria-hidden="true">
                       <div class="modal-dialog">
                         <div class="modal-content">
                           <div class="modal-header">
-                            <h5 class="modal-title" id="staticBackdropLabel">{{ $staff->user->name }}をスタッフから削除しますか？</h5>
+                            <h5 class="modal-title" id="staticBackdropLabel{{ $staff->id }}">{{ $staff->user->name }}をスタッフから削除しますか？</h5>
                             <button type="button" class="close" data-bs-dismiss="modal" aria-label="閉じる">
                               <span aria-hidden="true">&times;</span>
                             </button>
                           </div>
                           <div class="modal-footer">
-                            <button type="button" class="btn border-dark text-dark" data-bs-dismiss="modal">閉じる</button>
-                            <button type="submit" class="btn delete-modal-button">削除</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
+                            <button type="submit" class="btn btn-danger">削除</button>
                           </div>
                         </div>
                       </div>

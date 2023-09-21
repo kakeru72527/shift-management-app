@@ -130,8 +130,6 @@ class StaffController extends Controller
             $staff->delete();
         }
 
-        $staff->update();
-
         return to_route('staff.index');
     }
 
@@ -144,7 +142,6 @@ class StaffController extends Controller
             $staff->delete();
         }
 
-        $staff->update();
 
         return to_route('staff.edit_for_admin', $store->id)->with('deleteMessage', "スタッフのリストからの削除に成功しました。");
     }
