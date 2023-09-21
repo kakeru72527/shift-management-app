@@ -27,7 +27,7 @@ class StoreController extends AdminController
         $grid = new Grid(new Store());
 
         $grid->column('id', __('Id'))->sortable();
-        $grid->column('name', __('Name'));
+        $grid->column('name', 'store_name');
         $grid->column('address', __('Address'));
         $grid->column('description', __('Description'));
         $grid->column('created_at', __('Created at'))->sortable();
@@ -54,7 +54,7 @@ class StoreController extends AdminController
         $show = new Show(Store::findOrFail($id));
 
         $show->field('id', __('Id'));
-        $show->field('name', __('Name'));
+        $show->field('name', 'store_name');
         $show->field('address', __('Address'));
         $show->field('description', __('Description'));
         $show->field('created_at', __('Created at'));
@@ -72,7 +72,7 @@ class StoreController extends AdminController
     {
         $form = new Form(new Store());
 
-        $form->text('name', __('Name'));
+        $form->text('name', 'store_name');
         $form->text('address', __('Address'));
         $form->textarea('description', __('Description'));
 
