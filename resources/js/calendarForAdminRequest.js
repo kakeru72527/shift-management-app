@@ -60,20 +60,21 @@ let calendar = new Calendar(calendarForAdminAddConfirm, {
 
         console.log(data);
         let staffShifts = document.getElementById('request-shifts-for-admin')
-        // モーダルを表示させる
-        data.forEach(function(elem) {
-          console.log(elem.name)
-          var staff = document.createElement("div");
+        if(staffShifts.textContent.indexOf('名前') == -1){
+          // モーダルを表示させる
+          data.forEach(function(elem) {
+            console.log(elem.name)
+            var staff = document.createElement("div");
 
-          var text = '名前 : ' + elem.name + ' 時間 : ' + elem.start_time +  '～' + elem.end_time;
-          // staff.textContent = text
-          // console.log(staff)
-          
-          staffShifts.append(text, staff);
-        })
+            var text = '名前 : ' + elem.name + ' 時間 : ' + elem.start_time +  '～' + elem.end_time;
+            // staff.textContent = text
+            // console.log(staff)
+            
+            staffShifts.append(text, staff);
+          })
         
       // $('#addConfirmShiftModal').show();
-      })
+      }})
       .fail(function() {
         console.log("データ取得失敗");
       });
@@ -83,6 +84,7 @@ let calendar = new Calendar(calendarForAdminAddConfirm, {
 
         console.log(data);
         let staffShifts = document.getElementById('confirm-shifts-for-admin')
+        if(staffShifts.textContent.indexOf('名前') == -1){
         // モーダルを表示させる
         data.forEach(function(elem) {
           console.log(elem.name)
@@ -95,7 +97,7 @@ let calendar = new Calendar(calendarForAdminAddConfirm, {
           staffShifts.append(text, staff);
         })
       $('#addConfirmShiftModal').show();
-      })
+      }})
       .fail(function() {
         console.log("データ取得失敗");
       });

@@ -20,6 +20,24 @@ let calendarFSR = new Calendar(calendarForStaffRequest, {
     // 日付をクリック、または範囲を選択したイベント
     
     dateClick: function(info) {
+      if($('#addRequestShiftModal').css("display") == "none"){
+
+      // 二重クリック防止
+
+      // $('.fc-daygrid-day-number').hide();
+      // $('.loading').show();
+
+      // setTimeout(function(){
+      //   $('.fc-daygrid-day-number').show();
+      //   $('.loading').hide();
+      // }, 1000);
+      
+      let fcDaygridDayNumber = document.getElementsByClassName('fc-daygrid-day-number')
+      
+      Array.prototype.forEach.call(fcDaygridDayNumber, function (element) {
+        element.classList.add("disabled");
+    });
+
       
       // モーダル表示時に対象の日付を表示できる
       var targetDate = info.dateStr;
@@ -44,6 +62,8 @@ let calendarFSR = new Calendar(calendarForStaffRequest, {
 
         console.log(data);
         let staffShifts = document.getElementById('request-staff-shifts')
+
+        if(staffShifts.textContent.indexOf('名前') == -1){
         // モーダルを表示させる
         data.forEach(function(elem) {
           console.log(elem.name)
@@ -56,15 +76,16 @@ let calendarFSR = new Calendar(calendarForStaffRequest, {
           staffShifts.append(text, staff);
         })
       $('#addRequestShiftModal').show();
+        }
       })
       .fail(function() {
         console.log("データ取得失敗");
       });
+
       
       
       
-      
-    },
+    }},
   });
 calendarFSR.render();
 
