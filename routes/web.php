@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\FormController;
-
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -49,4 +49,8 @@ Route::get('/form', [App\Http\Controllers\FormController::class, 'index'])->midd
 Route::get('/form/complete', [FormController::class, 'complete'])->middleware('auth')->name('form.complete');
 Route::post('/form', [FormController::class, 'sendMail'])->middleware('auth');
 
+
+// portfolio
+
+Route::view('/portfolio', 'portfolio')->name('portfolio');
 
