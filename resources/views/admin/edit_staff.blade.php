@@ -55,7 +55,7 @@
                     @enderror
                     <br>
                     <label for="role" class="mt-2">役職</label>
-                    <input type="radio" name="role" id="employee" value="employee">
+                    <input type="radio" name="role" id="employee" value="employee" required>
                     <label for="employee">正社員</label>
                     <input type="radio" name="role" id="parttime" value="parttime">
                     <label for="parttime">アルバイト</label>
