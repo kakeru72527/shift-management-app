@@ -46,7 +46,7 @@
         <div class="container">
           <h2 class="title">WORKS</h2>
           <div class="works-list">
-            <a class="works-item" href="https://shift-management-app-95b969691c61.herokuapp.com/">
+            <a class="works-item" href="https://shift-management-app-2574d9cd9caa.herokuapp.com/">
               <div class="works-img">
                 <img src="{{ asset('img/shift-management-app-example.png') }}" alt="exmaple" /></div>
               <p class="works-name">シフト管理アプリ</p>
