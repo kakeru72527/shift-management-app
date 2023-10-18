@@ -57,13 +57,21 @@
               <div class="works-img"><img src="{{ asset('img/todo-app.png') }}" alt="TODOアプリ" /></div>
               <p class="works-name">TODOアプリ</p>
               <p class="works-info">HTML/CSS(Bootstrap)/JavaScript/Laravel/MySQL</p>
-              <p class="works-detail">目標やタグも設定できるTODOアプリを作成しました。それぞれのCRUD機能以外に、ログイン機能や一対多の関係などを理解してテーブルの紐付けも行いました。</p>
+              <p class="works-detail">目標やタグも設定できるTODOアプリを作成しました。それぞれのCRUD機能以外に、ログイン機能や一対多の関係などを理解してテーブルの紐付けも行いました。
+                <br>メールアドレス：xiangsanye44@gmail.com
+                <br>パスワード：password
+                <br>で既存のユーザーにログインできます
+              </p>
             </a>
             <a class="works-item" href="https://laravel-samuraimart-test-ee8302d82cfb.herokuapp.com/">
               <div class="works-img"><img src="{{ asset('img/samuraimart-picture.png') }}" alt="ECサイト" /></div>
               <p class="works-name">ECサイト</p>
               <p class="works-info">HTML/CSS(Bootstrap)/Laravel/MySQL</p>
-              <p class="works-detail">Laravelを用いてECサイトを作成しました。ログイン機能・お気に入り機能・商品の並び替え(ソート)機能・カート機能など、様々なライブラリを利用して作成しました。</p>
+              <p class="works-detail">Laravelを用いてECサイトを作成しました。ログイン機能・お気に入り機能・商品の並び替え(ソート)機能・カート機能など、様々なライブラリを利用して作成しました。
+                <br>メールアドレス：xiangsanye44@gmail.com
+                <br>パスワード：password
+                <br>で既存のユーザーにログインできます
+              </p>
             </a>
             
           </div>
