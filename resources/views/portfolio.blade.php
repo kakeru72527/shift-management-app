@@ -45,13 +45,36 @@
       <section class="works section" id="works">
         <div class="container">
           <h2 class="title">WORKS</h2>
+
           <div class="works-list">
-            <a class="works-item" href="https://shift-management-app-2574d9cd9caa.herokuapp.com/">
-              <div class="works-img">
+            <a class="works-item" href="https://laravel-posting-app-test-4db069dc8225.herokuapp.com/">
+              <div class="works-img"><img src="{{ asset('img/post-app.png') }}" alt="投稿アプリ" /></div>
+              <p class="works-name">投稿アプリ</p>
+              <p class="works-info">HTML/CSS(Bootstrap)/Laravel/MySQL</p>
+              <p class="works-detail">投稿の作成・閲覧・編集・削除の機能を持つ投稿アプリです。Laravelを用いてCRUD機能を作成しました。</p>
+            </a>
+            <a class="works-item" href="https://laravel-todo-app-test-499aa08176d2.herokuapp.com/">
+              <div class="works-img"><img src="{{ asset('img/todo-app.png') }}" alt="TODOアプリ" /></div>
+              <p class="works-name">TODOアプリ</p>
+              <p class="works-info">HTML/CSS(Bootstrap)/JavaScript/Laravel/MySQL</p>
+              <p class="works-detail">目標やタグも設定できるTODOアプリを作成しました。それぞれのCRUD機能以外に、ログイン機能や一対多の関係などを理解してテーブルの紐付けも行いました。</p>
+            </a>
+            <a class="works-item" href="https://laravel-samuraimart-test-ee8302d82cfb.herokuapp.com/">
+              <div class="works-img"><img src="{{ asset('img/samuraimart-picture.png') }}" alt="ECサイト" /></div>
+              <p class="works-name">ECサイト</p>
+              <p class="works-info">HTML/CSS(Bootstrap)/Laravel/MySQL</p>
+              <p class="works-detail">Laravelを用いてECサイトを作成しました。ログイン機能・お気に入り機能・商品の並び替え(ソート)機能・カート機能など、様々なライブラリを利用して作成しました。</p>
+            </a>
+            
+          </div>
+
+          <div class="worksmain-list ">
+            <a class="worksmain-item" href="https://shift-management-app-2574d9cd9caa.herokuapp.com/">
+              <div class="worksmain-img">
                 <img src="{{ asset('img/shift-management-app-example.png') }}" alt="exmaple" /></div>
-              <p class="works-name">シフト管理アプリ</p>
-              <p class="works-info">HTML/CSS/JavaScript/jQuery/PHP/MySQL</p>
-              <p class="works-detail">オリジナルアプリとして開発したシフト管理アプリです。<br>
+              <p class="worksmain-name">シフト管理アプリ</p>
+              <p class="worksmain-info">HTML/CSS(Bootstrap)/JavaScript/jQuery/PHP/MySQL</p>
+              <p class="worksmain-detail">オリジナルアプリとして開発したシフト管理アプリです。<br>
             「シフト希望の登録・閲覧」、「確定したシフトの登録、閲覧」、「スタッフの追加、削除」、「お問い合わせフォーム」などの機能を持っています。<br>
           FullCalendarライブラリを使用してカレンダーを表示し、日付をクリックするとその日のシフトの閲覧や登録ができる<br>わかりやすい作りになるように工夫しました。<br>
         画像をクリックするとアプリのページに行くことができます。</p>
@@ -99,7 +122,7 @@
               <div class="skill-body">
                 <h3 class="skill-name">PHP</h3>
                 <p class="skill-text">
-                  フレームワークであるLaravelを使用し、オリジナルアプリであるシフト管理アプリを作成しました。</p>
+                  フレームワークであるLaravelを使用し、オリジナルアプリであるシフト管理アプリなどを作成しました。</p>
               </div>
             </div>
            
