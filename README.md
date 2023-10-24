@@ -1,66 +1,75 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+## シフト管理アプリ
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+<img width="1128" alt="shift-management-app-example" src="https://github.com/kakeru72527/shift-management-app/assets/96040265/d7cb498e-6d46-4346-bd92-8e4c6054c993">
 
-## About Laravel
+## 概要
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+こちらはアプリ1つで複数店舗のシフト管理が可能となるアプリです。店舗のオーナーや店長はシフト作成・管理がしやすくなり、アルバイトやスタッフは出勤希望日の申請やシフト閲覧がしやすくなり、店舗の運営負担を軽減することができるようになります。
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 作成した経緯
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+大学時代にアルバイトで働いていた焼き鳥屋では、シフト申請する際は店舗に置いてある出勤希望シートへ記入する形式でした。この場合、シフトが入っていない休みの日にわざわざ店舗まで行かないといけないこともあり、もっと簡単に申請できないかと思っていたことがきっかけでした。そこで、プログラミングを活かして自身でシフト管理アプリが開発できないかと考え、今回制作に至りました。
 
-## Learning Laravel
+## URL
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+https://shift-management-app-2574d9cd9caa.herokuapp.com/
+<br>
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+●テストユーザー
+<br>
+メールアドレス： test@example.com
+<br>
+パスワード： password
+## 機能一覧
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+| トップ画面 |　ログイン画面 |
+| ---- | ---- |
+| <img width="1128" alt="shift-top" src="https://github.com/kakeru72527/shift-management-app/assets/96040265/7585d569-21f6-4b83-8f26-bf6550cb2ab3">　|　<img width="1128" alt="shift-login" src="https://github.com/kakeru72527/shift-management-app/assets/96040265/411566e7-da94-4c21-a316-8853ee65a12c"> |
+| ログインしていない状態でのトップページです。 | メールアドレスとパスワードによるログイン機能を実装しました。 | 
 
-## Laravel Sponsors
+| 新規登録画面 |　ホーム画面 |
+| ---- | ---- |
+| <img width="1128" alt="shift-resister" src="https://github.com/kakeru72527/shift-management-app/assets/96040265/da212455-373e-47fa-9b40-5bcb877d9989"> | <img width="1128" alt="shift-home" src="https://github.com/kakeru72527/shift-management-app/assets/96040265/0d1747f7-ed44-4fd6-b5ac-7fc6108f4ba5"> |
+| 名前・メールアドレス・パスワードを入力するとユーザー登録ができます。 | ログインした状態でのホーム画面です。ユーザーがスタッフや管理者として登録されている店舗が表示されます。 | 
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+| 確定シフト閲覧(スタッフ側)画面 |　希望シフト作成(スタッフ側)画面 |
+| ---- | ---- |
+| <img width="1128" alt="shift-confirm-for-staff" src="https://github.com/kakeru72527/shift-management-app/assets/96040265/98a0fe3f-4daa-4dce-9d3b-cc91cc7328de"> | <img width="1128" alt="shift-request-for-staff" src="https://github.com/kakeru72527/shift-management-app/assets/96040265/4524d9b5-c212-4e39-975d-a5bc21126985"> |
+| スタッフ側が確定シフトを閲覧できるページです。カレンダの日付をクリックするとモーダルが表示されます。 | スタッフ側が希望シフトを作成できるページです。カレンダの日付をクリックするとモーダルが表示され、ほかのスタッフの希望シフトの状況を見ながら作成できます。 | 
 
-### Premium Partners
+| 確定シフト作成(管理者側)画面 |　一日単位でのシフト確認(管理者側)画面 |
+| ---- | ---- |
+| <img width="1128" alt="shift-for-admin-calendar" src="https://github.com/kakeru72527/shift-management-app/assets/96040265/ef31ffb5-4616-4f11-bbf1-87d77e5d0de5"> | <img width="1128" alt="shift-for-admin-day-calendar" src="https://github.com/kakeru72527/shift-management-app/assets/96040265/0d1cee4a-57bf-4d74-8caf-24fe19dccc9a"> |
+| 管理者側が確定したシフトを作成できるページです。カレンダの日付をクリックするとモーダルが表示され、スタッフの希望・確定シフトの状況を見ながら作成できます。| 管理者側が指定した日付のシフトを確認できるページです。ガントチャートを用いて視覚的にシフト状況を分かりやすく確認できます。 | 
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+| スタッフ編集(管理者)画面 |　スタッフ追加(管理者)画面 |
+| ---- | ---- |
+| <img width="1128" alt="shift-edit-staff" src="https://github.com/kakeru72527/shift-management-app/assets/96040265/e44903bc-2977-4c8d-aae3-b14c51a8c39d"> | <img width="1128" alt="shift-add-staff" src="https://github.com/kakeru72527/shift-management-app/assets/96040265/d0f49632-b587-489f-bac7-4aa9dab98142"> |
+| 管理者側のスタッフ管理用のページです。退職したスタッフが店舗のページに入れないようにスタッフを削除できます。 | 管理者側のスタッフ追加ページです。メールアドレスと役職(アルバイト・正社員)を選択すると追加できます。 | 
 
-## Contributing
+| お問い合わせ画面 |
+| ---- |
+| <img width="1128" alt="shift-contact" src="https://github.com/kakeru72527/shift-management-app/assets/96040265/a7441734-4094-45c4-983f-8eaf55090637"> |
+| 画面右上のメニューからお問い合わせページに行くことができます。お問い合わせの内容はアプリの管理者にメールで連絡がいきます。また、店舗の新規登録の申請もこのページで受け付けています。 | 
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 使用技術
 
-## Code of Conduct
+| Category          |                                    |
+| ----------------- | --------------------------------------------------   |
+| フロントエンド     | HTML,CSS,JavaScript,JQuery                       |
+| バックエンド       | PHP,Laravel |
+| データベース  | MySQL |
+| その他 | Github, FullCalendarライブラリ(カレンダーの表示) |
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## ER図
+<img width="596" alt="shift-ER" src="https://github.com/kakeru72527/shift-management-app/assets/96040265/502647c8-b430-4373-beea-3ae8577516b4">
 
-## Security Vulnerabilities
+## 工夫した点
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+・視覚的にわかりやすいものを作りたかったのでFullcalendarライブラリ(https://fullcalendar.io/)
+を用いてのカレンダーの実装に挑戦しました。一日単位でのシフトを表示する画面ではガントチャートをライブラリを使わずに自作で作ることができました。 <br>
+・カレンダーをクリックした際に表示されるモーダルの内容や、モーダルでの入力内容を非同期で通信できるようにAPIを用いての通信に挑戦して作成することができました。
 
-## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
