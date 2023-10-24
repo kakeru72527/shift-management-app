@@ -51,3 +51,25 @@ https://shift-management-app-2574d9cd9caa.herokuapp.com/
 | ---- |
 | <img width="1128" alt="shift-contact" src="https://github.com/kakeru72527/shift-management-app/assets/96040265/a7441734-4094-45c4-983f-8eaf55090637"> |
 | 画面右上のメニューからお問い合わせページに行くことができます。お問い合わせの内容はアプリの管理者にメールで連絡がいきます。また、店舗の新規登録の申請もこのページで受け付けています。 | 
+
+## 使用技術
+
+| Category          |                                    |
+| ----------------- | --------------------------------------------------   |
+| フロントエンド     | HTML,CSS,JavaScript,JQuery                       |
+| バックエンド       | PHP,Laravel |
+| データベース  | MySQL |
+| その他 | Github, FullCalendarライブラリ(カレンダーの表示) |
+
+## ER図
+<img width="596" alt="shift-ER" src="https://github.com/kakeru72527/shift-management-app/assets/96040265/502647c8-b430-4373-beea-3ae8577516b4">
+
+## 工夫した点
+
+・視覚的にわかりやすいものを作りたかったのでFullcalendarライブラリ(https://fullcalendar.io/)
+を用いてのカレンダーの実装に挑戦しました。一日単位でのシフトを表示する画面ではガントチャートをライブラリを使わずに自作で作ることができた。 <br>
+・カレンダーをクリックした際に表示されるモーダルの内容や、モーダルでの入力内容を非同期で通信できるようにAPIを用いての通信に挑戦して作成することができた。
+
+
+
+
