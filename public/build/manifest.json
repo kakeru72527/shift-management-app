@@ -1,0 +1,44 @@
+{
+  "_index-b0680438.js": {
+    "file": "assets/index-b0680438.js"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-35e3159b.css",
+    "isEntry": true,
+    "src": "resources/css/app.css"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-5cd00a6f.js",
+    "isEntry": true,
+    "src": "resources/js/app.js"
+  },
+  "resources/js/calendarForAdminRequest.js": {
+    "file": "assets/calendarForAdminRequest-174d10b0.js",
+    "imports": [
+      "_index-b0680438.js"
+    ],
+    "isEntry": true,
+    "src": "resources/js/calendarForAdminRequest.js"
+  },
+  "resources/js/calendarForStaffConfirm.js": {
+    "file": "assets/calendarForStaffConfirm-33343fcd.js",
+    "imports": [
+      "_index-b0680438.js"
+    ],
+    "isEntry": true,
+    "src": "resources/js/calendarForStaffConfirm.js"
+  },
+  "resources/js/calendarForStaffRequest.js": {
+    "file": "assets/calendarForStaffRequest-65eb1083.js",
+    "imports": [
+      "_index-b0680438.js"
+    ],
+    "isEntry": true,
+    "src": "resources/js/calendarForStaffRequest.js"
+  },
+  "resources/sass/app.scss": {
+    "file": "assets/app-71455456.css",
+    "isEntry": true,
+    "src": "resources/sass/app.scss"
+  }
+}
