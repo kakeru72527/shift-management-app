@@ -60,7 +60,7 @@
               <p class="works-detail">目標やタグも設定できるTODOアプリを作成しました。それぞれのCRUD機能以外に、ログイン機能や一対多の関係などを理解してテーブルの紐付けも行いました。
                 <br>メールアドレス：xiangsanye44@gmail.com
                 <br>パスワード：password
-                <br>で既存のユーザーにログインできます
+                <br>で既存のユーザーにログインできます。
               </p>
             </a>
             <a class="works-item" href="https://laravel-samuraimart-test-ee8302d82cfb.herokuapp.com/">
@@ -70,7 +70,7 @@
               <p class="works-detail">Laravelを用いてECサイトを作成しました。ログイン機能・お気に入り機能・商品の並び替え(ソート)機能・カート機能など、様々なライブラリを利用して作成しました。
                 <br>メールアドレス：xiangsanye44@gmail.com
                 <br>パスワード：password
-                <br>で既存のユーザーにログインできます
+                <br>で既存のユーザーにログインできます。
               </p>
             </a>
             
@@ -82,10 +82,17 @@
                 <img src="{{ asset('img/shift-management-app-example.png') }}" alt="exmaple" /></div>
               <p class="worksmain-name">シフト管理アプリ</p>
               <p class="worksmain-info">HTML/CSS(Bootstrap)/JavaScript/jQuery/PHP/MySQL</p>
-              <p class="worksmain-detail">オリジナルアプリとして開発したシフト管理アプリです。<br>
-            「シフト希望の登録・閲覧」、「確定したシフトの登録、閲覧」、「スタッフの追加、削除」、「お問い合わせフォーム」などの機能を持っています。<br>
-          FullCalendarライブラリを使用してカレンダーを表示し、日付をクリックするとその日のシフトの閲覧や登録ができる<br>わかりやすい作りになるように工夫しました。<br>
-        画像をクリックするとアプリのページに行くことができます。</p>
+              <p class="worksmain-detail">
+                オリジナルアプリとして開発したシフト管理アプリです。<br>
+                「シフト希望の登録・閲覧」、「確定したシフトの登録、閲覧」、「スタッフの追加、削除」、「お問い合わせフォーム」などの機能を持っています。<br>
+                FullCalendarライブラリを使用してカレンダーを表示し、日付をクリックするとその日のシフトの閲覧や登録ができる<br>わかりやすい作りになるように工夫しました。<br>
+                 画像をクリックするとアプリのページに行くことができます。
+                 <br>
+                 ●テストユーザー<br>
+                 メールアドレス：test@example.com 
+                 パスワード：password 
+                 サンプルデータ：2023-11-1にあります。
+              </p>
             </a>
             
           </div>
